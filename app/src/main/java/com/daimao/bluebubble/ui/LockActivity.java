@@ -49,7 +49,7 @@ public class LockActivity extends XActivity {
             mTxtInfrom.setText("设置手势密码");
             mPatternLockerView.setOnPatternChangedListener(mNewPatternChangeListener);
         } else {
-            mTxtInfrom.setText("");
+            mTxtInfrom.setText("请输入密码");
             mPatternLockerView.setOnPatternChangedListener(mCheckPatternChangeListener);
         }
         mBtnTest.setOnClickListener(new View.OnClickListener() {

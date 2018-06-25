@@ -1,5 +1,6 @@
 package com.daimao.bluebubble.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.daimao.bluebubble.BaseApplication;
 import com.daimao.bluebubble.R;
+import com.daimao.bluebubble.example.TestActivity;
 import com.daimao.bluebubble.fragment.NotebookFragment;
 import com.daimao.bluebubble.fragment.PasswordBookFragment;
 import com.daimao.bluebubble.fragment.PersonalFragment;
@@ -27,6 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import cn.droidlover.xdroidmvp.base.XFragmentAdapter;
 import cn.droidlover.xdroidmvp.mvp.XActivity;
+import cn.droidlover.xdroidmvp.router.Router;
 
 import static com.daimao.bluebubble.AppConfigure.LOG_TAG;
 
@@ -57,7 +60,6 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
     @Override
     public void initData(Bundle savedInstanceState) {
         initView();
-
     }
 
     private void initView() {
@@ -121,6 +123,12 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
             case R.id.menu_help:
 //                AboutActivity.launch(context);
                 BaseApplication.getInstance().showTip("帮助");
+                break;
+            case R.id.menu_add_pwd:
+                Router.newIntent(MainActivity.this).to(AddPwdActivity.class).launch();
+                break;
+            case R.id.menu_change_lock:
+                Router.newIntent(MainActivity.this).to(ChangeLockActivity.class).launch();
                 break;
         }
         return super.onOptionsItemSelected(item);
