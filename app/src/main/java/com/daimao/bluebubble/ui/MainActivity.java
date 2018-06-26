@@ -1,6 +1,5 @@
 package com.daimao.bluebubble.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,12 +10,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 
-import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.daimao.bluebubble.BaseApplication;
 import com.daimao.bluebubble.R;
-import com.daimao.bluebubble.example.TestActivity;
 import com.daimao.bluebubble.fragment.NotebookFragment;
 import com.daimao.bluebubble.fragment.PasswordBookFragment;
 import com.daimao.bluebubble.fragment.PersonalFragment;
@@ -34,7 +31,7 @@ import cn.droidlover.xdroidmvp.router.Router;
 import static com.daimao.bluebubble.AppConfigure.LOG_TAG;
 
 
-public class MainActivity extends XActivity implements ViewPager.OnPageChangeListener, BottomNavigationBar.OnTabSelectedListener{
+public class MainActivity extends XActivity implements ViewPager.OnPageChangeListener, BottomNavigationBar.OnTabSelectedListener {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -50,6 +47,8 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
 
     @BindView(R.id.bottom_navigation_bar)
     BottomNavigationBar mBottomNavigationBar;
+
+
 
     List<Fragment> fragmentList = new ArrayList<>();
 
@@ -88,16 +87,15 @@ public class MainActivity extends XActivity implements ViewPager.OnPageChangeLis
         mBottomNavigationBar.setActiveColor(R.color.blue);
 
 
-
 //        mBadgeItem = new BadgeItem();
 //        mBadgeItem.setHideOnSelect(false)
 //                .setText("10")
 //                .setBackgroundColorResource(R.color.orange)
 //                .setBorderWidth(0);
 
-        mBottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_msg, titles[0]))
-                .addItem(new BottomNavigationItem(R.drawable.ic_friends, titles[1]))
-                .addItem(new BottomNavigationItem(R.drawable.ic_folder, titles[2]))
+        mBottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.ic_passwordbook, titles[0]))
+                .addItem(new BottomNavigationItem(R.drawable.ic_notebook, titles[1]))
+                .addItem(new BottomNavigationItem(R.drawable.ic_deedbox, titles[2]))
                 .addItem(new BottomNavigationItem(R.drawable.ic_person, titles[3]))
                 .setFirstSelectedPosition(0)
                 .initialise();
